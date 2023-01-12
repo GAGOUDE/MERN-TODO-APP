@@ -4,13 +4,13 @@ import Form from './components/Form';
 import './App.css';
 import axios from 'axios';
 
-const API_URL = 'todos/';
+// const API_URL = 'todos/';
 
 function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    axios.get(API_URL)
+    axios.get("https://mern-todo-app-0311.onrender.com/todos")
       .then(res => {
         setTodos(res.data);
       })

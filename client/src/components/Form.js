@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TodoList from './TodoList';
 
-const API_URL = 'todos/'
+// const API_URL = 'todos/'
 
 const Form = ({ todos, setTodos }) => {
     const [input, setInput] = useState("");
@@ -16,11 +16,11 @@ const Form = ({ todos, setTodos }) => {
         event.preventDefault();
 
         if (!editTodo) {
-            const response = await axios.post(API_URL, { title: input, completed: false });
+            const response = await axios.post("https://mern-todo-app-0311.onrender.com/todos/", { title: input, completed: false });
 
             setTodos([...todos, response.data]);
         } else {
-            await axios.put(`${API_URL}${editTodo._id}`, { title: input, completed: false });
+            await axios.put(`${"https://mern-todo-app-0311.onrender.com/todos/"}${editTodo._id}`, { title: input, completed: false });
 
             const editAndUpdateTodo = todos.map((todo) => {
                 if (todo._id === editTodo._id) {

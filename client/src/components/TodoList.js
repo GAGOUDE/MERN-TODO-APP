@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const API_URL = 'todos/';
+// const API_URL = 'todos/';
 
 const TodoList = ({ todos, setTodos, setEditTodo }) => {
 
@@ -12,7 +12,7 @@ const TodoList = ({ todos, setTodos, setEditTodo }) => {
     };
 
     const handleComplete = async (id) => {
-        const response = await axios.put(`${API_URL}${id}`, { completed: !todos.completed });
+        const response = await axios.put(`${"https://mern-todo-app-0311.onrender.com/todos/"}${id}`, { completed: !todos.completed });
         setTodos(
             todos.map((todo) => {
                 if (todo._id === id) {
@@ -24,7 +24,7 @@ const TodoList = ({ todos, setTodos, setEditTodo }) => {
     };
 
     const handleDelete = async (id) => {
-        await axios.delete(`${API_URL}${id}`)
+        await axios.delete(`${"https://mern-todo-app-0311.onrender.com/todos/"}${id}`)
             .then((res) => console.log(res))
             .catch((err) => console.log(err))
 
